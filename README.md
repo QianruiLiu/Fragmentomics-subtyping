@@ -49,7 +49,7 @@ find ~/fastq -name "*.fastq" -print0 | xargs -0 -n1 -P8 pigz -p 8   #Compressing
 
 ### 64 lpWGS samples
 
-* **Source:** EGA dataset (https://ega-archive.org/datasets/EGAD00001008462)(granted access required).
+* **Source:** EGA dataset (https://ega-archive.org/datasets/EGAD00001008462) (granted access required).
 * **Download (pyEGA3):**
 
 ```bash
