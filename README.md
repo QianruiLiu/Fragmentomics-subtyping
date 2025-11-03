@@ -96,7 +96,7 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
 
   ```bash
-  conda env create -f lucap_preprocessing.yaml
+  conda env create -f env/lucap_preprocessing.yaml
 
   conda activate pdx_prepoc
   ```
@@ -104,7 +104,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
   
   The fastq files downloaded in ~/fastq should firstly be aligned with the concatenated hg38+mm10 reference.
 
-  The shell concatenate_reference.py can be found in https://github.com/GavinHaLab/PDX_mouseSubtraction/blob/main/scripts/concatenate_reference.py, can be run as:
+  The script concatenate_reference.py is offered by Ha Lab in https://github.com/GavinHaLab/PDX_mouseSubtraction/blob/main/scripts/concatenate_reference.py, can be run as:
 
   ```bash
   python concatenate_reference.py --humanRef hg38.fa --mouseRef Mus_musculus_NCBI_GRCm38.fa --concatRef ~/fastq/hg38_mm10.fa --tag _mm10
@@ -134,13 +134,55 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
   done
   ```
   Run mouse_substraction snakemake pipeline in https://github.com/GavinHaLab/PDX_mouseSubtraction offered by Ha Lab.
-  The pipeline contains mouse_substraction, realignment, Picard MarkDuplicates and base-quality, recalibration (GATK)
+  The pipeline contains mouse_substraction, realignment, Picard MarkDuplicates and base-quality, recalibration (GATK).
   The vcf file used in GATK part can be accessed with:
   ```bash
    wget https://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh38p7/VCF/All_20180418.vcf.gz
    wget https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
   ```
+### lpWGS
+* **Tools and Environment**
+  
+  bwa-mem2 (2.3)
 
+  samtools(1.22.1)
+
+  picard (3.4.0)
+
+  The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
+
+  ```bash
+  conda env create -f env/lpWGS_preprocessing.yaml
+
+  conda activate 5hmc
+  ```
+* **Usage of script**
+  lpWGS preprocessing can be done with env/align_markdup.sh in this repository.
+  ```bash
+   bash env/align_markdup.sh \
+  --ref /refs/hg38.fa \
+  --in  ~/ega_lpWGS \
+  --out ~/ega_lpWGS/bam_out \
+  --threads 28 \
+  --remove-dup true #Here you can choose not to remove duplicates
+  ```
+### Clinical Cohort
+* **Tools and Environment**
+  fastqc （0.12.1）
+  ```bash
+  mamba create -n fastqc -c bioconda -c conda-forge fastqc=0.12.1 -y
+  mamba activate fastqc
+  ```
+  ```bash
+  mkdir -p ~/clinical_samples/fastqc_out
+  for f in ~/clinical_samples/bam_files/*.bam; do
+    fastqc -o ~/clinical_samples/fastqc_out -t 8 --noextract "$f"
+  done
+  ```
+  
+
+
+ 
 
   
 
