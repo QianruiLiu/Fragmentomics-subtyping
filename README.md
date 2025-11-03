@@ -31,6 +31,12 @@ conda install -n base -c conda-forge mamba -y
 
   The accession list can be get from the website as SraAccList.csv.
 
+* **Environment**
+
+```bash
+mamba create -y -n PDX_downloading sra-tools pigz
+```
+
 * **Download:**
 
 ```bash
@@ -50,6 +56,13 @@ find ~/fastq -name "*.fastq" -print0 | xargs -0 -n1 -P8 pigz -p 8   #Compressing
 ### 64 lpWGS samples
 
 * **Source:** EGA dataset (https://ega-archive.org/datasets/EGAD00001008462) (granted access required).
+
+* **Environment**
+
+```bash
+mamba  create -y -n lpWGS_downloading pyega3
+```
+
 * **Download (pyEGA3):**
 
 ```bash
@@ -66,7 +79,14 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 ## 2) Data preprocessing
 
 ### LuCaP PDX cfDNA
+* **Tools and Environment**
+bwa (0.7.17)
 
+samtools (v1.14)
+
+picard (MarkDuplicates)
+
+gatk (BaseRecalibrator/ApplyBQSR)
 
 ### 3.4 Tumor Fraction Estimation (ichorCNA)
 
