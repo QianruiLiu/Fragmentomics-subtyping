@@ -35,6 +35,8 @@ conda install -n base -c conda-forge mamba -y
 
 ```bash
 mamba create -y -n PDX_downloading sra-tools pigz
+
+conda activate PDX_downloading
 ```
 
 * **Download:**
@@ -61,6 +63,8 @@ find ~/fastq -name "*.fastq" -print0 | xargs -0 -n1 -P8 pigz -p 8   #Compressing
 
 ```bash
 mamba  create -y -n lpWGS_downloading pyega3
+
+conda activate lpWGS_downloading
 ```
 
 * **Download (pyEGA3):**
@@ -80,13 +84,58 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 
 ### LuCaP PDX cfDNA
 * **Tools and Environment**
-bwa (0.7.17)
 
-samtools (v1.14)
+ bwa (0.7.17)
 
-picard (MarkDuplicates)
+ samtools (1.14)
 
-gatk (BaseRecalibrator/ApplyBQSR)
+ picard (3.4.0)
+
+ gatk (4.6.2.0)
+
+The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
+
+```bash
+conda env create -f lucap_preprocessing.yaml
+
+conda activate pdx_prepoc
+```
+* **Running the pipeline**
+  The fastq files downloaded in ~/fastq should firstly be aligned with the concatenated hg38+mm10 reference.
+
+  The shell concatenate_reference.py can be found in https://github.com/GavinHaLab/PDX_mouseSubtraction/blob/main/scripts/concatenate_reference.py, can be run as:
+
+  ```bash
+  python concatenate_reference.py --humanRef hg38.fa --mouseRef Mus_musculus_NCBI_GRCm38.fa --concatRef hg38_mm10.fa --tag _mm10
+  ```
+  Where hg38.fa and Mus_musculus_NCBI_GRCm38.fa can be get by wget:
+
+  ```bash
+  wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+  wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Mus_musculus/NCBI/GRCm38/Mus_musculus_NCBI_GRCm38.tar.gz
+  ```
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 ### 3.4 Tumor Fraction Estimation (ichorCNA)
 
