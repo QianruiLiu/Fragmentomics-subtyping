@@ -84,6 +84,7 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 
 ### LuCaP PDX cfDNA
 * **Tools and Environment**
+* bwa (0.7.17)
 
  bwa (0.7.17)
 
