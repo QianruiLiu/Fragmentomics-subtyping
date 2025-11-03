@@ -140,6 +140,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
    wget https://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh38p7/VCF/All_20180418.vcf.gz
    wget https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
   ```
+
 ### lpWGS
 * **Tools and Environment**
   
@@ -180,50 +181,37 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
     fastqc -o ~/clinical_samples/fastqc_out -t 8 --noextract "$f"
   done
   ```
-  
+    
+## 3) Tumor Fraction Estimation (ichorCNA)
 
+* **Environment**
 
- 
+  R (4.2.3)
 
-  
+  BiocManager (1.30.22)
 
-  
+  GenomeInfoDb (1.34.9)
 
-  
+  GenomicRanges (1.48.0)
 
+  ichorCNA (0.5.1)
 
+  HMMcopy(Bioconductor) (1.42.0)
 
+  hmmcopy (0.1.1)
 
+  The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
 
+  ```bash
+  conda env create -f env/ichorCNA.yaml
 
+  conda activate ichor
+  ```
 
+Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snakemake pipeline provided by Ha Lab can be found in https://github.com/GavinHaLab/ichorCNA/tree/v0.4.0/scripts/snakemake
 
-
-
-
-
-
-
- 
-
-### 3.4 Tumor Fraction Estimation (ichorCNA)
-
-* Run ichorCNA on BAMs; ensure `*.params.txt` produced. Then:
-
-```bash
-python scripts/ichor_tf_collect.py --root results/ichor --out tables/ichor_tf.tsv
-```
-
----
-
-## 4) Software Stack
-
-* **Snakemake:** >=7.x (pinned in `envs/*`)
-* **Conda/Mamba:** for reproducible envs
-* **BWA‑MEM2 / Samtools / Picard:** alignment + duplicates + indexing
-* **FinaleToolkit:** WPS, cleavage, fragment length, motif features (external repo)
-* **Griffin:** nucleosome/coverage profiles over AD‑ATAC‑TF and NE‑ATAC‑TF loci
-* **R (>=4.2) + packages:** tidymodels, glmnet, survival, survminer, ggplot2, etc.
+## 4) Feature substraction
+### Griffin
 
 Environment creation:
 
