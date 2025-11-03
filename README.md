@@ -168,6 +168,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
   ```
 ### Clinical Cohort
 * **Tools and Environment**
+
   fastqc （0.12.1）
   ```bash
   mamba create -n fastqc -c bioconda -c conda-forge fastqc=0.12.1 -y
