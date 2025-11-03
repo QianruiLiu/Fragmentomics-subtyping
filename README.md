@@ -93,13 +93,13 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 
   gatk (4.6.2.0)
 
-The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
+  The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
 
-```bash
-conda env create -f lucap_preprocessing.yaml
+  ```bash
+  conda env create -f lucap_preprocessing.yaml
 
-conda activate pdx_prepoc
-```
+  conda activate pdx_prepoc
+  ```
 * **Running the pipeline**
   
   The fastq files downloaded in ~/fastq should firstly be aligned with the concatenated hg38+mm10 reference.
