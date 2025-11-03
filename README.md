@@ -93,7 +93,7 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 
   gatk (4.6.2.0)
 
-  The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
+The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
 
   ```bash
   conda env create -f lucap_preprocessing.yaml
@@ -107,7 +107,7 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
   The shell concatenate_reference.py can be found in https://github.com/GavinHaLab/PDX_mouseSubtraction/blob/main/scripts/concatenate_reference.py, can be run as:
 
   ```bash
-  python concatenate_reference.py --humanRef hg38.fa --mouseRef Mus_musculus_NCBI_GRCm38.fa --concatRef hg38_mm10.fa --tag _mm10
+  python concatenate_reference.py --humanRef hg38.fa --mouseRef Mus_musculus_NCBI_GRCm38.fa --concatRef ~/fastq/hg38_mm10.fa --tag _mm10
   ```
   Where hg38.fa and Mus_musculus_NCBI_GRCm38.fa can be get by wget:
 
@@ -115,7 +115,32 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
   wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
   wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Mus_musculus/NCBI/GRCm38/Mus_musculus_NCBI_GRCm38.tar.gz
   ```
-  
+  Then, do the alignment with bwa mem.
+
+  ```bash
+  cd ~/fastq
+  mkdir -p ../lucap_original
+  for R1 in *_R1.fastq.gz *_1.fastq.gz; do
+    [ -e "$R1" ] || continue  
+    R2="$(echo "$R1" | sed 's/_R1\.fastq\.gz/_R2.fastq\.gz/; s/_1\.fastq\.gz/_2.fastq\.gz/')" #seek for R2 with same name with R1
+    # The output filename
+    OUT="../lucap_original/$(basename "$R1" | sed -E 's/(_R1|_1)\.fastq\.gz$//').concat.bam"
+    # 1) align with the concatenated reference
+    bwa mem -t 16 hg38_mm10.fa "$R1" "$R2" \
+      | samtools view -b - \
+      | samtools sort -@8 -o "$OUT"
+    # 2) build the index
+    samtools index "$OUT"
+  done
+  ```
+  Run mouse_substraction snakemake pipeline in https://github.com/GavinHaLab/PDX_mouseSubtraction offered by Ha Lab.
+  The pipeline contains mouse_substraction, realignment, Picard MarkDuplicates and base-quality, recalibration (GATK)
+  The vcf file used in GATK part can be accessed with:
+  ```bash
+   wget https://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh38p7/VCF/All_20180418.vcf.gz
+   wget https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+  ```
+
 
   
 
