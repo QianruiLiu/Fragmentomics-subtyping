@@ -160,7 +160,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
 * **Usage of script**
   lpWGS preprocessing can be done with env/align_markdup.sh in this repository.
   ```bash
-   bash env/align_markdup.sh \
+   bash scripts/align_markdup.sh \
   --ref /refs/hg38.fa \
   --in  ~/ega_lpWGS \
   --out ~/ega_lpWGS/bam_out \
