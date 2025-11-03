@@ -1,19 +1,19 @@
 # Fragmentomics-subtyping
 The github repository from research project of BINP39
 
-Reference: https://doi.org/10.1101/2022.06.21.496879
-
 **Workflow overview**
 
 > 1)Data Availability & Download
 
 > 2)Data preprocessing
 
-> 3)Feature substraction
+> 3)Tumor Fraction analysis
 
-> 4)Model training
+> 4)Feature substraction
 
-> 5)Analysis with R(TF analysis & survival analysis)
+> 5)Model training
+
+> 6)Analysis with R(TF analysis & survival analysis)
 
 For an easier management of the installed programs and their dependencies, all analyses were performed in a Conda environment. Mamba is also needed.
 
@@ -27,32 +27,46 @@ conda install -n base -c conda-forge mamba -y
 
 ### LuCaP PDX cfDNA
 
-* **Source:** NCBI(https://www.ncbi.nlm.nih.gov/bioproject/PRJNA900550)
+* **Source:** NCBI (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA900550)
+
+  The accession list can be get from the website as SraAccList.csv.
+
 * **Download:**
 
 ```bash
-# Configure SRA cache (optional)
-prefetch SRRXXXXXX
-fasterq-dump -e 8 SRRXXXXXX -O data/sra_fastq
+mkdir -p ~/sra_raw && cd ~/sra_raw #Put SraAccList.csv file in this directory at the same time
+
+prefetch --option-file SraAccList.csv --progress 
+
+mkdir -p ~/fastq && cd ~/fastq 
+
+cat ~/sra_raw/SraAccList.csv | xargs -n1 -P4 -I{} \
+  fasterq-dump {} -O ~/fastq -t ~/tmp -e 8 -p --split-files  #Get fastq files
+
+find ~/fastq -name "*.fastq" -print0 | xargs -0 -n1 -P8 pigz -p 8   #Compressing fastq files
+
 ```
 
-### 3.2 External Test: 64 lpWGS (EGA)
+### 64 lpWGS samples
 
-* **Source:** EGA dataset (e.g., EGAD00001008462). Add dataset and file IDs in `config/config.yaml`.
+* **Source:** EGA dataset (https://ega-archive.org/datasets/EGAD00001008462)(granted access required).
 * **Download (pyEGA3):**
 
 ```bash
-# Linux/macOS
-pyega3 -cf ~/.ega/credential_file.json fetch EGAD00001008462 --output-dir data/ega_lpWGS
+mkdir -p ~/ega_lpWGS
 
-# Windows via WSL (recommended)
-# Ensure Python + Java installed in WSL; credentials file accessible inside WSL path
-pyega3 -cf /home/<user>/.ega/credential_file.json fetch EGAD00001008462 --output-dir /mnt/<drive>/...
+pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
+#The example of creating a credential file can be seen at https://github.com/EGA-archive/ega-download-client/blob/master/pyega3/config/default_credential_file.json
 ```
 
-### 3.3 Clinical Cohort (local sequencing)
+### Clinical Cohort 
 
 * Place raw FASTQs under `data/clinical_fastq/` (or BAMs under `results/bam/`). Provide a `samples/clinical.tsv`.
+
+## 2) Data preprocessing
+
+### LuCaP PDX cfDNA
+
 
 ### 3.4 Tumor Fraction Estimation (ichorCNA)
 
@@ -286,6 +300,7 @@ LuCaP_35CR	ARPC	data/fastq/LuCaP_35CR_R1.fq.gz	data/fastq/LuCaP_35CR_R2.fq.gz
 * Griffin nucleosome profiling
 * ichorCNA for ctDNA fraction
 * Any public cohorts (SRA/EGA) used
+* Reference: https://doi.org/10.1101/2022.06.21.496879
 
 ---
 
