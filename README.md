@@ -101,6 +101,7 @@ conda env create -f lucap_preprocessing.yaml
 conda activate pdx_prepoc
 ```
 * **Running the pipeline**
+  
   The fastq files downloaded in ~/fastq should firstly be aligned with the concatenated hg38+mm10 reference.
 
   The shell concatenate_reference.py can be found in https://github.com/GavinHaLab/PDX_mouseSubtraction/blob/main/scripts/concatenate_reference.py, can be run as:
