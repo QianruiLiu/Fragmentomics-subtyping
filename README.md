@@ -6,9 +6,13 @@ Reference: https://doi.org/10.1101/2022.06.21.496879
 **Workflow overview**
 
 > 1)Data Availability & Download
+
 > 2)Data preprocessing
+
 > 3)Feature substraction
+
 > 4)Model training
+
 > 5)Analysis with R(TF analysis & survival analysis)
 
 ---
