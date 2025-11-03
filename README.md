@@ -84,15 +84,14 @@ pyega3 -cf credential_file.json fetch EGAD00001008462 --output-dir ~/ega_lpWGS
 
 ### LuCaP PDX cfDNA
 * **Tools and Environment**
-* bwa (0.7.17)
+  
+  bwa (0.7.17)
 
- bwa (0.7.17)
+  samtools (1.14)
 
- samtools (1.14)
+  picard (3.4.0)
 
- picard (3.4.0)
-
- gatk (4.6.2.0)
+  gatk (4.6.2.0)
 
 The whole environment can be accessed in env/lucap_preprocessing.yaml in this repository. The environment can be directly built by
 
