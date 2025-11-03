@@ -15,32 +15,20 @@ Reference: https://doi.org/10.1101/2022.06.21.496879
 
 > 5)Analysis with R(TF analysis & survival analysis)
 
----
+For an easier management of the installed programs and their dependencies, all analyses were performed in a Conda environment. Mamba is also needed.
 
-## 1) Background & Goals
+Mamba can be installed with
 
-* **Biological question.** Distinguish ARPC vs NEPC in advanced prostate cancer from **lpWGS cfDNA fragmentomics** by integrating **coverage/nucleosome profiles (Griffin)** with **multi‑family fragmentomics** from **FinaleToolkit** (WPS, cleavage, fragment length, end‑motif / motif entropy).
-* **Data.** LuCaP PDX (training), 64 external lpWGS (testing), and an independent clinical cohort; **ctDNA tumor fraction (ctF)** quantitatively modeled and used in calibration.
-* **Deliverables.**
+```bash
+conda install -n base -c conda-forge mamba -y
+```
 
-  1. Reproducible Snakemake workflows (this repo + external FinaleToolkit repo).
-  2. Feature matrices and classifier probabilities.
-  3. TF‑level ranking/heatmaps.
-  4. Survival projections with figures.
+## 1) Data Availability & Download
 
----
+### LuCaP PDX cfDNA
 
-
-> **Note:** Placeholders above align with the pipeline contracts in Sections 5–7. Adjust names/paths as needed.
-
----
-
-## 3) Data Availability & Download
-
-### 3.1 Training: LuCaP PDX cfDNA
-
-* **Source:** NCBI SRA / BioProject (e.g., PRJNAxxxxx). Add exact accession IDs to `config/config.yaml`.
-* **Download (SRA Toolkit):**
+* **Source:** NCBI(https://www.ncbi.nlm.nih.gov/bioproject/PRJNA900550)
+* **Download:**
 
 ```bash
 # Configure SRA cache (optional)
