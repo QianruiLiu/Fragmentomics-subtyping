@@ -374,7 +374,7 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
   ```
   The example param.yaml is in example_config_file/ in this repository.
 
-  d.Run snakemake with
+  c.Run snakemake with
   ```bash
     snakemake --configfile params.yaml --cores 32 --jobs 4 #set different cores and jobs according to your computer
   ```
@@ -410,7 +410,47 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
     conda activate deeptools
 
     ```
-  * **To run getFeatures pipeline:**
+* **To run getFeatures pipeline:**
+ 
+  a. Clone this repository to your computer with
+  ```bash
+  git clone https://github.com/QianruiLiu/Fragmentomics-subtyping.git
+
+  cd scripts/getFeatures_snakemake
+  ```
+  b. Modify the config.yaml, specify the output directory, create a sample list with the output of Finaletoolkit, set the site list (AD-ATAC-TF.sorted.bed AND NE-ATAC-TF.sorted.bed) and the parameters.
+
+  The example config.yaml is in scripts/getFeatures_snakemake/config.yaml in this repository.
+
+  c.Run snakemake with
+  ```bash
+  snakemake -j 48 #set different cores and jobs according to your computer
+  ```
+  The ouput of this step is a merged featurematrix "_finaletoolkit_features.tsv".
+
+* **To generate final featurematrix**
+
+  As the whole worflow in this repository should be run on all three types of cohorts, here only take LuCaP data as an example:
+  
+  a. Merge all the griffin features using scripts/merge_griffin.py
+
+  ```bash
+  python scripts/merge_griffin.py -b /Griffin/snakemakes/griffin_nucleosome_profiling/results/   -o /merged/LuCaP_griffin_features.tsv   --only_gccorr
+  ```
+  b. Merge griffin features with finaltoolkit features into one feature matrix with scripts/merge_griff_with_final.py
+
+  ```bash
+  python scripts/merge_griff_with_final.py --finaletoolkit merged/LuCaP_finaletoolkit_features.tsv --griffin  merged/LuCaP_griffin_features.tsv --out merged/LuCaP_final_feature_matrix.tsv
+  ```
+  The output LuCaP_final_feature_matrix.tsv will be used as a training dataset in the machine learning part as an input featurematrix.
+
+* **To generate final Tumor fraction form**
+  Still take LuCaP data as an example, the script in scripts/collect_ichor_tf.py can be run:
+  ```bash
+  python scripts/collect_ichor_tf.py --root ~/ichoCNA/scripts/snakemake/results/ichorCNA/ --out /merged/LuCaP_TF.tsv
+  ```
+
+  
     
 
 
