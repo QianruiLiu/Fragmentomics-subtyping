@@ -1,0 +1,14 @@
+name: model_training
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base=4.3.*
+  - r-optparse
+  - r-tidyverse
+  - r-tidymodels
+  - r-janitor
+  - r-glmnet
+  - make
+  - gxx_linux-64
+  - gfortran

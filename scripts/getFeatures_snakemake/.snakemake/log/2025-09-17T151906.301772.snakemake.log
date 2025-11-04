@@ -1,0 +1,254 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+computeMatrix                  8
+fraglen_features               4
+fraglen_filter_by_sites        4
+motifs_features                4
+motifs_filter_by_sites         4
+plotProfile                    8
+profile_features               8
+total                         41
+
+Select jobs to execute...
+
+[Wed Sep 17 15:19:06 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    jobid: 26
+    reason: Missing output files: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    wildcards: sample=LuCaP_35_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/motif/NE/LuCaP_35_recal.motif.NE.filtered.tsv
+    jobid: 36
+    reason: Missing output files: results/LuCaP_35_recal/motif/NE/LuCaP_35_recal.motif.NE.filtered.tsv
+    wildcards: sample=LuCaP_35_recal, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/motif/AD/LuCaP_35CR_recal.motif.AD.filtered.tsv
+    jobid: 38
+    reason: Missing output files: results/LuCaP_35CR_recal/motif/AD/LuCaP_35CR_recal.motif.AD.filtered.tsv
+    wildcards: sample=LuCaP_35CR_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/motif/AD/LuCaP_35_recal.motif.AD.filtered.tsv
+    jobid: 34
+    reason: Missing output files: results/LuCaP_35_recal/motif/AD/LuCaP_35_recal.motif.AD.filtered.tsv
+    wildcards: sample=LuCaP_35_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/wps/NE/LuCaP_35_recal.wps.NE.matrix.gz
+    jobid: 12
+    reason: Missing output files: results/LuCaP_35_recal/wps/NE/LuCaP_35_recal.wps.NE.matrix.gz
+    wildcards: sample=LuCaP_35_recal, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/wps/AD/LuCaP_35_recal.wps.AD.matrix.gz
+    jobid: 9
+    reason: Missing output files: results/LuCaP_35_recal/wps/AD/LuCaP_35_recal.wps.AD.matrix.gz
+    wildcards: sample=LuCaP_35_recal, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/fraglen/AD/LuCaP_35CR_recal.fraglen.AD.filtered.bed
+    jobid: 30
+    reason: Missing output files: results/LuCaP_35CR_recal/fraglen/AD/LuCaP_35CR_recal.fraglen.AD.filtered.bed
+    wildcards: sample=LuCaP_35CR_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/wps/NE/LuCaP_35CR_recal.wps.NE.matrix.gz
+    jobid: 24
+    reason: Missing output files: results/LuCaP_35CR_recal/wps/NE/LuCaP_35CR_recal.wps.NE.matrix.gz
+    wildcards: sample=LuCaP_35CR_recal, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/motif/NE/LuCaP_35CR_recal.motif.NE.filtered.tsv
+    jobid: 40
+    reason: Missing output files: results/LuCaP_35CR_recal/motif/NE/LuCaP_35CR_recal.motif.NE.filtered.tsv
+    wildcards: sample=LuCaP_35CR_recal, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/cleavage_profile/NE/LuCaP_35_recal.cleavage_profile.NE.matrix.gz
+    jobid: 6
+    reason: Missing output files: results/LuCaP_35_recal/cleavage_profile/NE/LuCaP_35_recal.cleavage_profile.NE.matrix.gz
+    wildcards: sample=LuCaP_35_recal, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/wps/AD/LuCaP_35CR_recal.wps.AD.matrix.gz
+    jobid: 21
+    reason: Missing output files: results/LuCaP_35CR_recal/wps/AD/LuCaP_35CR_recal.wps.AD.matrix.gz
+    wildcards: sample=LuCaP_35CR_recal, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/fraglen/NE/LuCaP_35_recal.fraglen.NE.filtered.bed
+    jobid: 28
+    reason: Missing output files: results/LuCaP_35_recal/fraglen/NE/LuCaP_35_recal.fraglen.NE.filtered.bed
+    wildcards: sample=LuCaP_35_recal, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/cleavage_profile/AD/LuCaP_35_recal.cleavage_profile.AD.matrix.gz
+    jobid: 3
+    reason: Missing output files: results/LuCaP_35_recal/cleavage_profile/AD/LuCaP_35_recal.cleavage_profile.AD.matrix.gz
+    wildcards: sample=LuCaP_35_recal, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/fraglen/NE/LuCaP_35CR_recal.fraglen.NE.filtered.bed
+    jobid: 32
+    reason: Missing output files: results/LuCaP_35CR_recal/fraglen/NE/LuCaP_35CR_recal.fraglen.NE.filtered.bed
+    wildcards: sample=LuCaP_35CR_recal, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/cleavage_profile/NE/LuCaP_35CR_recal.cleavage_profile.NE.matrix.gz
+    jobid: 18
+    reason: Missing output files: results/LuCaP_35CR_recal/cleavage_profile/NE/LuCaP_35CR_recal.cleavage_profile.NE.matrix.gz
+    wildcards: sample=LuCaP_35CR_recal, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:19:06 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35CR_recal.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35CR_recal/cleavage_profile/AD/LuCaP_35CR_recal.cleavage_profile.AD.matrix.gz
+    jobid: 15
+    reason: Missing output files: results/LuCaP_35CR_recal/cleavage_profile/AD/LuCaP_35CR_recal.cleavage_profile.AD.matrix.gz
+    wildcards: sample=LuCaP_35CR_recal, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+[Wed Sep 17 15:19:06 2025]
+Finished job 26.
+1 of 41 steps (2%) done
+Select jobs to execute...
+
+[Wed Sep 17 15:19:06 2025]
+rule fraglen_features:
+    input: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    output: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.features.tsv
+    jobid: 25
+    reason: Missing output files: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.features.tsv; Input files updated by another job: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    wildcards: sample=LuCaP_35_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+[Wed Sep 17 15:19:06 2025]
+Error in rule fraglen_features:
+    jobid: 25
+    input: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    output: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.features.tsv
+    shell:
+        
+        python scripts/make_length_features.py results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.features.tsv \
+          --short 100 150 \
+          --mono  160  220 \
+          --di    300    400
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Sep 17 15:19:06 2025]
+Finished job 30.
+2 of 41 steps (5%) done
+[Wed Sep 17 15:19:06 2025]
+Finished job 28.
+3 of 41 steps (7%) done
+[Wed Sep 17 15:19:06 2025]
+Finished job 32.
+4 of 41 steps (10%) done
+[Wed Sep 17 15:19:07 2025]
+Finished job 34.
+5 of 41 steps (12%) done
+[Wed Sep 17 15:19:07 2025]
+Finished job 36.
+6 of 41 steps (15%) done
+[Wed Sep 17 15:19:07 2025]
+Finished job 38.
+7 of 41 steps (17%) done
+[Wed Sep 17 15:19:07 2025]
+Finished job 40.
+8 of 41 steps (20%) done
+[Wed Sep 17 15:21:59 2025]
+Finished job 3.
+9 of 41 steps (22%) done
+[Wed Sep 17 15:21:59 2025]
+Finished job 15.
+10 of 41 steps (24%) done
+[Wed Sep 17 15:22:21 2025]
+Finished job 21.
+11 of 41 steps (27%) done
+[Wed Sep 17 15:22:21 2025]
+Finished job 9.
+12 of 41 steps (29%) done
+[Wed Sep 17 15:23:28 2025]
+Finished job 24.
+13 of 41 steps (32%) done
+[Wed Sep 17 15:23:28 2025]
+Finished job 12.
+14 of 41 steps (34%) done
+[Wed Sep 17 15:23:34 2025]
+Finished job 6.
+15 of 41 steps (37%) done
+[Wed Sep 17 15:23:35 2025]
+Finished job 18.
+16 of 41 steps (39%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-09-17T151906.301772.snakemake.log

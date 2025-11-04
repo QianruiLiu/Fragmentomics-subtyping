@@ -1,0 +1,4 @@
+site_lists:
+  AD-ATAC: /home/student/1_Griffin/snakemakes/griffin_nucleosome_profiling/sites/AD-ATAC-TF.sorted.bed
+  NE-ATAC: /home/student/1_Griffin/snakemakes/griffin_nucleosome_profiling/sites/NE-ATAC-TF.sorted.bed
+

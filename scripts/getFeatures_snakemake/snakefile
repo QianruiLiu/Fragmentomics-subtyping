@@ -1,0 +1,276 @@
+# --- Snakefile (no conda; safe params in shell) ---
+# Purpose: Build fragmentomics features (coverage/meta-profile, fragment length, and end motifs)
+# from user-provided bigWigs/TSVs over given TFBS/peak site-sets, then merge to a matrix.
+
+import os, re
+from glob import glob
+
+# -----------------------------
+# Global configuration & handles
+# -----------------------------
+configfile: "config.yaml"
+
+# Signals that have feature-generators in this workflow
+FEAT_SIGNALS = ["cleavage_profile","fraglen","motif","wps"]
+
+# Sample and site-set keys come from config.yaml
+SAMPLES = list(config["samples"].keys())
+SITESETS = list(config["site_sets"].keys())
+
+# Which signals to compute meta-profiles for (subset of FEAT_SIGNALS)
+SIGNALS = config.get("signals", ["cleavage_profile","wps"])
+
+# Per-stage parameter blocks from config.yaml
+M = config["matrix"]  # computeMatrix settings
+P = config["profile"] # plotProfile / smoothing settings
+FCONF = config["features"] # feature extraction windows
+FLEN = config["fraglen"] # fragment-length cutoffs
+MOT = config["motif"] # end-motif feature config
+
+# Executable paths (optional override in config.yaml under: executables:)
+EXE = config.get("executables", {})
+CM = EXE.get("computeMatrix", "computeMatrix")
+PP = EXE.get("plotProfile", "plotProfile")
+BT = EXE.get("bedtools", "bedtools")
+PY = EXE.get("python", "python")
+
+# -----------------------------
+# Small helpers to read config
+# -----------------------------
+def bw_path(sample, signal): return config["samples"][sample]["bigwig"][signal]
+def bed_sites(s): return config["site_sets"][s]
+def fraglen_path(sample): return config["samples"][sample]["frag_length_bed"]
+def motifs_path(sample): return config["samples"][sample]["end_motifs_tsv"]
+
+# -----------------------------
+# Top-level targets
+# -----------------------------
+rule all:
+    """
+    Build per-sample/per-signal features across all site-sets,
+    then merge everything into a single wide TSV (plus optional labels).
+    """
+    input:
+        # Composite profile-based features for selected signals
+        expand("results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.features.tsv",
+               sample=SAMPLES, signal=SIGNALS, siteset=SITESETS),
+        # Fragment-length features
+        expand("results/{sample}/fraglen/{siteset}/{sample}.fraglen.{siteset}.features.tsv",
+               sample=SAMPLES, siteset=SITESETS),
+        # End-motif features
+        expand("results/{sample}/motif/{siteset}/{sample}.motif.{siteset}.features.tsv",
+               sample=SAMPLES, siteset=SITESETS),
+        # Final merged matrix path from config["merged_out"]
+        config["merged_out"]
+
+# -----------------------------------
+# bigWig -> matrix (deepTools computeMatrix)
+# -----------------------------------
+rule computeMatrix:
+    """
+    For each sample/signal/siteset, compute per-bin coverage matrix around reference points.
+    """
+    input:
+        bw = lambda wc: bw_path(wc.sample, wc.signal),
+        bed = lambda wc: bed_sites(wc.siteset)
+    output:
+        gz = temp("results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.matrix.gz")
+    params:
+        cm = CM,
+        up = M["upstream"],
+        down = M["downstream"],
+        bs = M["binsize"],
+        ref = M["reference_point"],
+        mda = "--missingDataAsZero" if M.get("missingDataAsZero", True) else "",
+        skz = "--skipZeros" if M.get("skipZeros", False) else ""
+    shell:
+        r"""
+        {params.cm} reference-point \
+          -S {input.bw} \
+          -R {input.bed} \
+          -a {params.up} -b {params.down} -bs {params.bs} \
+          --referencePoint {params.ref} \
+          {params.mda} {params.skz} \
+          -o {output.gz}
+        """
+
+# -----------------------------------
+# matrix -> tidy profile (and a PDF for quick QC)
+# -----------------------------------
+rule plotProfile:
+    """
+    Summarize the matrix into a group-averaged profile; emit a PDF and a tidy TSV table.
+    """
+    input:
+        "results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.matrix.gz"
+    output:
+        pdf = temp("results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.profile.pdf"),
+        tidy = "results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.tidy.tsv"
+    params:
+        pp = PP,
+        avg = P["averageType"]
+    shell:
+        r"""
+        {params.pp} -m {input} -out {output.pdf} \
+          --perGroup --averageType {params.avg} \
+          --outFileNameData {output.tidy}
+        """
+
+# -----------------------------------
+# tidy profile -> composite features (center/shoulders/amplitude/phasing + smoothed)
+# -----------------------------------
+rule profile_features:
+    """
+    Convert tidy profile into engineered features (center mean, shoulders, amplitude, phasing).
+    Only applies to coverage-like signals; excludes fraglen to avoid rule overlap.
+    """
+    wildcard_constraints:
+        # Restrict this rule to cleavage_profile and wps only (exclude fraglen/motif)
+        signal="(?:cleavage_profile|wps)"
+    input:
+        "results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.tidy.tsv"
+    output:
+        prof = "results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.profile.tsv",
+        feat = "results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.features.tsv"
+    params:
+        py = PY,
+        bs = M["binsize"],
+        center = FCONF["center_window"],
+        shoulders = FCONF["shoulders"],
+        amp_core = FCONF["amp_core"],
+        phase = FCONF["phase"],
+        smooth = P["smooth_bp"]
+    shell:
+        r"""
+        {params.py} scripts/make_profile_features.py {input} {wildcards.sample}.{wildcards.signal}.{wildcards.siteset} \
+          --binsize {params.bs} \
+          --center {params.center[0]} {params.center[1]} \
+          --shoulders {params.shoulders[0]} {params.shoulders[1]} {params.shoulders[2]} {params.shoulders[3]} \
+          --amp_core {params.amp_core[0]} {params.amp_core[1]} \
+          --phase {params.phase[0]} {params.phase[1]} {params.phase[2]} {params.phase[3]} {params.phase[4]} {params.phase[5]} {params.phase[6]} {params.phase[7]} \
+          --smooth {params.smooth}
+        mv {wildcards.sample}.{wildcards.signal}.{wildcards.siteset}.profile.tsv {output.prof}
+        mv {wildcards.sample}.{wildcards.signal}.{wildcards.siteset}.features.tsv {output.feat}
+        """
+
+# -----------------------------------
+# Fragment-length: filter by sites, then feature extraction
+# -----------------------------------
+rule fraglen_filter_by_sites:
+    """
+    Intersect per-fragment-length BED (with header) against a site-set to keep on-target entries.
+    """
+    input:
+        bed = lambda wc: fraglen_path(wc.sample),
+        sites = lambda wc: bed_sites(wc.siteset)
+    output:
+        filt = temp("results/{sample}/fraglen/{siteset}/{sample}.fraglen.{siteset}.filtered.bed")
+    params:
+        bt = BT
+    shell:
+        r"""
+        head -n 1 {input.bed} > {output.filt}.hdr
+        tail -n +2 {input.bed} > {output.filt}.dat
+        {params.bt} intersect -a {output.filt}.dat -b {input.sites} -u > {output.filt}.body
+        cat {output.filt}.hdr {output.filt}.body > {output.filt}
+        rm -f {output.filt}.hdr {output.filt}.dat {output.filt}.body
+        """
+
+rule fraglen_features:
+    """
+    Compute length-interval proportions (short/mono/di-nucleosome) within the filtered set.
+    """
+    input:
+        "results/{sample}/fraglen/{siteset}/{sample}.fraglen.{siteset}.filtered.bed"
+    output:
+        "results/{sample}/fraglen/{siteset}/{sample}.fraglen.{siteset}.features.tsv"
+    params:
+        py = PY,
+        short = FLEN["short"],
+        mono = FLEN["mono"],
+        di = FLEN["di"]
+    shell:
+        r"""
+        {params.py} scripts/make_length_features.py {input} {output} \
+          --short {params.short[0]} {params.short[1]} \
+          --mono {params.mono[0]}  {params.mono[1]} \
+          --di {params.di[0]}    {params.di[1]}
+        """
+
+# -----------------------------------
+# End-motifs: filter by sites, then feature extraction
+# -----------------------------------
+rule motifs_filter_by_sites:
+    """
+    Intersect end-motif table (TSV with header) against a site-set to keep on-target entries.
+    """
+    input:
+        tsv = lambda wc: motifs_path(wc.sample),
+        sites = lambda wc: bed_sites(wc.siteset)
+    output:
+        filt = temp("results/{sample}/motif/{siteset}/{sample}.motif.{siteset}.filtered.tsv")
+    params:
+        bt = BT
+    shell:
+        r"""
+        head -n 1 {input.tsv} > {output.filt}.hdr
+        tail -n +2 {input.tsv} > {output.filt}.dat
+        {params.bt} intersect -a {output.filt}.dat -b {input.sites} -u > {output.filt}.body
+        cat {output.filt}.hdr {output.filt}.body > {output.filt}
+        rm -f {output.filt}.hdr {output.filt}.dat {output.filt}.body
+        """
+
+rule motifs_features:
+    """
+    Summarize motif composition (CG/AT/CCGG prefix groups, etc.) into compact features.
+    """
+    input:
+        "results/{sample}/motif/{siteset}/{sample}.motif.{siteset}.filtered.tsv"
+    output:
+        "results/{sample}/motif/{siteset}/{sample}.motif.{siteset}.features.tsv"
+    params:
+        py = PY,
+        kmer_regex = MOT["kmer_col_regex"],
+        value_col = MOT["value_col"],
+        cg = " ".join(MOT["cg_prefixes"]),
+        at = " ".join(MOT["at_prefixes"]),
+        ccgg = " ".join(MOT["ccgg_prefixes"])
+    shell:
+        r"""
+        {params.py} scripts/make_motif_features.py {input} {output} \
+          --kmer_regex '{params.kmer_regex}' \
+          --value_col {params.value_col} \
+          --prefixes_CG {params.cg} \
+          --prefixes_AT {params.at} \
+          --prefixes_CCGG {params.ccgg}
+        """
+
+# -----------------------------------
+# Merge all feature families into a wide matrix
+# -----------------------------------
+rule merge_features:
+    """
+    Collect all generated feature TSVs (profile/fraglen/motif/wps) and merge into one table.
+    Optionally attach labels if labels_tsv is provided in config.yaml.
+    """
+    input:
+        expand("results/{sample}/{signal}/{siteset}/{sample}.{signal}.{siteset}.features.tsv",
+               sample=SAMPLES, signal=FEAT_SIGNALS, siteset=SITESETS)
+    output:
+        tsv = config["merged_out"]
+    params:
+        results_dir = config["results_dir"],
+        signals_str = " ".join(FEAT_SIGNALS),
+        labels = config.get("labels_tsv", "")
+    shell:
+        r"""
+        labels_flag=""
+        if [ -n "{params.labels}" ]; then
+            labels_flag="--labels {params.labels}"
+        fi
+        python scripts/merge_features.py \
+          --results {params.results_dir} \
+          --signals {params.signals_str} \
+          $labels_flag \
+          --out {output.tsv}
+        """

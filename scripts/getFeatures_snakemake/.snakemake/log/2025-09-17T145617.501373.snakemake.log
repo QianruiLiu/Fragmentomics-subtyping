@@ -1,0 +1,11 @@
+Building DAG of jobs...
+Creating conda environment envs/deeptools.yaml...
+Downloading and installing remote packages.
+CreateCondaEnvironmentException:
+Could not create conda environment from /home/student/getFeatures_snakemake/envs/deeptools.yaml:
+Command:
+mamba env create --quiet --file "/home/student/getFeatures_snakemake/.snakemake/conda/11a2970618535a029eb6ba3932df9382_.yaml" --prefix "/home/student/getFeatures_snakemake/.snakemake/conda/11a2970618535a029eb6ba3932df9382_"
+Output:
+error    libmamba Non-conda folder exists at prefix - aborting.
+critical libmamba Non-conda folder exists at prefix - aborting.
+

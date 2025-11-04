@@ -1,0 +1,378 @@
+# ===========================================================
+# config.yaml — Parameters for the feature-extraction pipeline
+# ===========================================================
+# This file is read by the Snakefile to locate inputs (per-sample files),
+# define site-sets (e.g., TFBS/peaks), choose which signals to process,
+# and configure windowing/smoothing/feature definitions.
+# Edit paths to match your environment; do not change key names.
+
+signals: ["cleavage_profile", "wps"]   # Signals to compute meta-profiles for (subset of FEAT_SIGNALS)
+
+results_dir: "/home/student/getFeatures_snakemake/results" #The results directory for feature extracting
+merged_out:  "/home/student/getFeatures_snakemake/merged/clinic_finaletoolkit_features.tsv"  #The final output (merged form) of the pipeline 
+
+# ------------------------------------------
+# Per-sample inputs
+# ------------------------------------------
+# Each sample must define:
+# bigwig.cleavage_profile : bigWig with per-base cleavage counts (or equivalent)
+# bigwig.wps : bigWig with window protection score (WPS)
+# frag_length_bed : BED-like table including fragment-length intervals (with header)
+# end_motifs_tsv : TSV with end-motif counts/values (with header)
+# You can add more samples by following the structure below.
+
+samples:
+  63XS_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/63XS.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/63XS.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/63XS.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/63XS.sorted.ucsc.interval_end_motifs.tsv"
+
+  63XS_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/63XS.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/63XS.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/63XS.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/63XS.sorted.ucsc.interval_end_motifs.tsv"
+
+  BA46_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/BA46.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/BA46.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/BA46.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/BA46.sorted.ucsc.interval_end_motifs.tsv"
+
+  BA46_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/BA46.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/BA46.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/BA46.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/BA46.sorted.ucsc.interval_end_motifs.tsv"
+
+  BH51_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/BH51.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/BH51.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/BH51.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/BH51.sorted.ucsc.interval_end_motifs.tsv"
+
+  BH51_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/BH51.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/BH51.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/BH51.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/BH51.sorted.ucsc.interval_end_motifs.tsv"
+
+  EJ37_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/EJ37.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/EJ37.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/EJ37.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/EJ37.sorted.ucsc.interval_end_motifs.tsv"
+
+  EJ37_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/EJ37.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/EJ37.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/EJ37.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/EJ37.sorted.ucsc.interval_end_motifs.tsv"
+
+  FS71_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/FS71.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/FS71.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/FS71.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/FS71.sorted.ucsc.interval_end_motifs.tsv"
+
+  FS71_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/FS71.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/FS71.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/FS71.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/FS71.sorted.ucsc.interval_end_motifs.tsv"
+
+  GS47_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/GS47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/GS47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/GS47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/GS47.sorted.ucsc.interval_end_motifs.tsv"
+
+  GS47_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/GS47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/GS47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/GS47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/GS47.sorted.ucsc.interval_end_motifs.tsv"
+
+  IL49_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/IL49.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/IL49.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/IL49.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/IL49.sorted.ucsc.interval_end_motifs.tsv"
+
+  IL49_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/IL49.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/IL49.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/IL49.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/IL49.sorted.ucsc.interval_end_motifs.tsv"
+
+  JA42_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/JA42.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/JA42.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/JA42.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/JA42.sorted.ucsc.interval_end_motifs.tsv"
+
+  JA42_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/JA42.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/JA42.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/JA42.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/JA42.sorted.ucsc.interval_end_motifs.tsv"
+
+  JE49_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/JE49.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/JE49.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/JE49.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/JE49.sorted.ucsc.interval_end_motifs.tsv"
+
+  JE49_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/JE49.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/JE49.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/JE49.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/JE49.sorted.ucsc.interval_end_motifs.tsv"
+
+  JE74_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/JE74.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/JE74.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/JE74.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/JE74.sorted.ucsc.interval_end_motifs.tsv"
+
+  JE74_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/JE74.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/JE74.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/JE74.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/JE74.sorted.ucsc.interval_end_motifs.tsv"
+
+  LAAF63_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/LAAF63.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/LAAF63.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/LAAF63.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/LAAF63.sorted.ucsc.interval_end_motifs.tsv"
+
+  LAAF63_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/LAAF63.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/LAAF63.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/LAAF63.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/LAAF63.sorted.ucsc.interval_end_motifs.tsv"
+
+  LF47_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.interval_end_motifs.tsv"
+
+  LF47_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.interval_end_motifs.tsv"
+
+  LJ52_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/LJ52.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/LJ52.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/LJ52.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/LJ52.sorted.ucsc.interval_end_motifs.tsv"
+
+  LJ52_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/LJ52.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/LJ52.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/LJ52.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/LJ52.sorted.ucsc.interval_end_motifs.tsv"
+
+  MA56_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/MA56.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/MA56.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/MA56.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/MA56.sorted.ucsc.interval_end_motifs.tsv"
+
+  MA56_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/MA56.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/MA56.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/MA56.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/MA56.sorted.ucsc.interval_end_motifs.tsv"
+
+  ME55_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/ME55.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/ME55.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/ME55.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/ME55.sorted.ucsc.interval_end_motifs.tsv"
+
+  ME55_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/ME55.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/ME55.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/ME55.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/ME55.sorted.ucsc.interval_end_motifs.tsv"
+
+  MS61_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/MS61.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/MS61.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/MS61.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/MS61.sorted.ucsc.interval_end_motifs.tsv"
+
+  MS61_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/MS61.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/MS61.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/MS61.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/MS61.sorted.ucsc.interval_end_motifs.tsv"
+
+  PA66_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/PA66.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/PA66.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/PA66.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/PA66.sorted.ucsc.interval_end_motifs.tsv"
+
+  PA66_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/PA66.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/PA66.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/PA66.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/PA66.sorted.ucsc.interval_end_motifs.tsv"
+
+  PL56_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/PL56.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/PL56.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/PL56.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/PL56.sorted.ucsc.interval_end_motifs.tsv"
+
+  PL56_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/PL56.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/PL56.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/PL56.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/PL56.sorted.ucsc.interval_end_motifs.tsv"
+
+  PL63_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/PL63.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/PL63.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/PL63.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/PL63.sorted.ucsc.interval_end_motifs.tsv"
+
+  PL63_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/PL63.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/PL63.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/PL63.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/PL63.sorted.ucsc.interval_end_motifs.tsv"
+
+  PV40_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/PV40.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/PV40.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/PV40.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/PV40.sorted.ucsc.interval_end_motifs.tsv"
+
+  PV40_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/PV40.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/PV40.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/PV40.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/PV40.sorted.ucsc.interval_end_motifs.tsv"
+
+  RG51_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/RG51.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/RG51.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/RG51.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/RG51.sorted.ucsc.interval_end_motifs.tsv"
+
+  RG51_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/RG51.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/RG51.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/RG51.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/RG51.sorted.ucsc.interval_end_motifs.tsv"
+
+  LF47_AD:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_AD/LF47.sorted.ucsc.interval_end_motifs.tsv"
+
+  LF47_NE:
+    bigwig:
+      cleavage_profile: "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.cleavage_profile.bw"
+      wps:              "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.wps.bw"
+    frag_length_bed:    "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.frag_length_intervals.bed"
+    end_motifs_tsv:     "/mnt/e/clinic_finaletoolkit_results_NE/LF47.sorted.ucsc.interval_end_motifs.tsv"
+
+# AD / NE typically refer to lineage-specific ATAC peak sets (BED).
+# These are used by computeMatrix and for intersecting fragment/motif tables.
+
+site_sets:
+  AD: "/home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed"
+  NE: "/home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed"
+
+signals: ["cleavage_profile", "wps"]   
+
+matrix:
+  upstream: 1500 # bp to include upstream of the reference point
+  downstream: 1500  # bp to include downstream of the reference point
+  binsize: 15  # bin size in bp
+  reference_point: "center"  # deepTools reference-point mode (center/TSS/etc.)
+  missingDataAsZero: true  # treat missing bigWig bins as zero
+  skipZeros: true  # ignore zero-only bins when averaging
+
+profile:
+  averageType: "mean"  # mean/median as supported by plotProfile          
+  smooth_bp: 165  # smoothing window in bp (applied inside feature script)              
+
+# center_window: used to compute central mean signal
+# shoulders: left/right shoulder bands (inner/outer)
+# amp_core: core region for amplitude computation
+# phase: eight phasing anchor positions (left3, left2, left1, left0, right0, right1, right2, right3)
+features:
+  center_window: [-30, 30]
+  shoulders: [-150, -75, 75, 150]
+  amp_core: [-150, 150]
+  phase: [-220, -170, -170, -120, 120, 170, 170, 220]
+
+# short/mono/di define inclusive ranges for interval proportions.
+fraglen:
+  short: [100, 150]
+  mono : [160, 220]
+  di : [300, 400]
+
+# kmer_col_regex: case-insensitive regex for the column that holds k-mers
+# value_col: name of the numeric column to summarize (e.g., counts)
+# *prefixes: motif groups to collapse (CG/AT/CCGG)
+motif:
+  kmer_col_regex: "(?i)^kmer$"      
+  value_col: "count"                
+  cg_prefixes: ["CG", "GC"]
+  at_prefixes: ["AA","TT","AT","TA"]
+  ccgg_prefixes: ["CC","GG"]

@@ -1,0 +1,11 @@
+Building DAG of jobs...
+Creating conda environment envs/pytools.yaml...
+Downloading and installing remote packages.
+CreateCondaEnvironmentException:
+Could not create conda environment from /home/student/getFeatures_snakemake/envs/pytools.yaml:
+Command:
+mamba env create --quiet --file "/home/student/.snakemake/conda-envs/023478d04aad1f0dbd62842ac61d0149_.yaml" --prefix "/home/student/.snakemake/conda-envs/023478d04aad1f0dbd62842ac61d0149_"
+Output:
+error    libmamba Non-conda folder exists at prefix - aborting.
+critical libmamba Non-conda folder exists at prefix - aborting.
+

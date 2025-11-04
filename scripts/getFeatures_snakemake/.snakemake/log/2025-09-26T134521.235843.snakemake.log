@@ -1,0 +1,13 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules fraglen_features and profile_features are ambiguous for the file results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.features.tsv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	fraglen_features: sample=ubc1_AD,siteset=AD
+	profile_features: sample=ubc1_AD,signal=fraglen,siteset=AD
+Expected input files:
+	fraglen_features: results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.filtered.bed
+	profile_features: results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.tidy.tsv
+Expected output files:
+	fraglen_features: results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.features.tsv
+	profile_features: results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.profile.tsv results/ubc1_AD/fraglen/AD/ubc1_AD.fraglen.AD.features.tsv

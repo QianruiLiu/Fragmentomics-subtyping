@@ -1,0 +1,51 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+computeMatrix                  8
+fraglen_features               4
+fraglen_filter_by_sites        4
+motifs_features                4
+motifs_filter_by_sites         4
+plotProfile                    8
+profile_features               8
+total                         41
+
+Select jobs to execute...
+
+[Wed Sep 17 15:02:19 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    jobid: 26
+    reason: Missing output files: results/LuCaP_35_recal/fraglen/AD/LuCaP_35_recal.fraglen.AD.filtered.bed
+    wildcards: sample=LuCaP_35_recal, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Wed Sep 17 15:02:19 2025]
+rule computeMatrix:
+    input: /mnt/g/finaletoolkit_results_NEPC/LuCaP_35_recal.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/LuCaP_35_recal/wps/NE/LuCaP_35_recal.wps.NE.matrix.gz
+    jobid: 12
+    reason: Missing output files: results/LuCaP_35_recal/wps/NE/LuCaP_35_recal.wps.NE.matrix.gz
+    wildcards: sample=LuCaP_35_recal, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+RuleException in rule computeMatrix in file /home/student/getFeatures_snakemake/snakefile, line 38:
+NameError: The name "('--missingDataAsZero' if M" is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}, when formatting the following:
+
+        computeMatrix reference-point \
+          -S {input.bw} \
+          -R {input.bed} \
+          -a {M[upstream]} -b {M[downstream]} -bs {M[binsize]} \
+          --referencePoint {M[reference_point]} \
+          {('--missingDataAsZero' if M['missingDataAsZero'] else '')} \
+          {('--skipZeros' if M['skipZeros'] else '')} \
+          -o {output.gz}
+        

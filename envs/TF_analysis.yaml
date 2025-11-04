@@ -1,0 +1,20 @@
+name: tfanalysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base=4.3.*
+  - r-optparse
+  - r-tidyverse
+  - r-janitor
+  - r-tidymodels
+  - r-yardstick
+  - r-rsample
+  - r-broom
+  - r-rlang
+  - r-ggrepel
+  - r-patchwork
+  - r-scales
+  - make
+  - gxx_linux-64
+  - gfortran

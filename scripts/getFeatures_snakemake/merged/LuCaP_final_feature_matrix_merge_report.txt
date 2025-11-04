@@ -1,0 +1,9 @@
+Total in A (finaletoolkit): 23
+Total in B (griffin)     : 23
+Matched                  : 22
+
+Only in A (no match in B):
+  LuCaP_170_2
+
+Only in B (not in A base):
+  LuCaP_70_2

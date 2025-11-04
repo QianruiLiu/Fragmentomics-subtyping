@@ -1,0 +1,10 @@
+model	id	id2	pr_auc
+ctF-aware (LLR+softTF)	Repeat1	Fold1	1
+ctF-aware (LLR+softTF)	Repeat1	Fold2	1
+ctF-aware (LLR+softTF)	Repeat1	Fold3	1
+ctF-aware (LLR+softTF)	Repeat2	Fold1	1
+ctF-aware (LLR+softTF)	Repeat2	Fold2	1
+ctF-aware (LLR+softTF)	Repeat2	Fold3	1
+ctF-aware (LLR+softTF)	Repeat3	Fold1	1
+ctF-aware (LLR+softTF)	Repeat3	Fold2	1
+ctF-aware (LLR+softTF)	Repeat3	Fold3	1

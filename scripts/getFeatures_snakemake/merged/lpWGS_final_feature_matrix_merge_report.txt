@@ -1,0 +1,7 @@
+Total in A (finaletoolkit): 64
+Total in B (griffin)     : 64
+Matched                  : 64
+
+Only in A (no match in B):
+
+Only in B (not in A base):

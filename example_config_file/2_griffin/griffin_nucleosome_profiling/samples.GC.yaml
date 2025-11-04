@@ -1,0 +1,19 @@
+samples:
+  49_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_49_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/49_LuCaP.GC_bias.txt
+  93_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_93_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/93_LuCaP.GC_bias.txt
+  145_1_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_145_1_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/145_1_LuCaP.GC_bias.txt
+  145_2_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_145_2_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/145_2_LuCaP.GC_bias.txt
+  173_1_rep2_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_173_1_rep2_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/173_1_rep2_LuCaP.GC_bias.txt
+  208_4_LuCaP:
+    bam: /mnt/f/Project_LuCap/LuCaP_data/LuCaP_208_4_recal.bam
+    GC_bias: /home/student/1_Griffin/snakemakes/griffin_GC_and_mappability_correction/results/GC_bias/208_4_LuCaP.GC_bias.txt

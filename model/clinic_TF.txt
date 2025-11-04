@@ -1,0 +1,4 @@
+sample	tumor_fraction
+BA46	0.4321
+LF47	0.06811
+PL63	0.2011

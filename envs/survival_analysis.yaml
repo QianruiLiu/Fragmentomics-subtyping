@@ -1,0 +1,17 @@
+name: survival
+channels:
+  - conda-forge
+  - r
+dependencies:
+  - r-base>=4.3
+  - r-optparse
+  - r-tidyverse
+  - r-survival
+  - r-survminer
+  - r-janitor
+  - r-readr
+  - r-ggplot2
+  - r-data.table
+  - r-glue
+  - r-scales
+  - fonts-conda-ecosystem

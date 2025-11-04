@@ -1,0 +1,6 @@
+name: deeptools_env
+channels: [bioconda, conda-forge, defaults]
+dependencies:
+  - python=3.10
+  - deeptools
+  - bedtools

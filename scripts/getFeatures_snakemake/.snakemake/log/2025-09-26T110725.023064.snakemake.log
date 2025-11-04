@@ -1,0 +1,1277 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 60
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+computeMatrix                512
+fraglen_features             256
+fraglen_filter_by_sites      256
+merge_features                 1
+motifs_features              256
+motifs_filter_by_sites       256
+plotProfile                  512
+profile_features             512
+total                       2562
+
+Select jobs to execute...
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc56.seq010646.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.filtered.bed
+    jobid: 1938
+    reason: Missing output files: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc56_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc43.seq010489.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc43_AD/motif/AD/ubc43_AD.motif.AD.filtered.tsv
+    jobid: 2362
+    reason: Missing output files: results/ubc43_AD/motif/AD/ubc43_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc43_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc13.seq010434.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc13_AD/motif/AD/ubc13_AD.motif.AD.filtered.tsv
+    jobid: 2146
+    reason: Missing output files: results/ubc13_AD/motif/AD/ubc13_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc13_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc56.seq010646.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.filtered.bed
+    jobid: 1940
+    reason: Missing output files: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc56_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc33.seq010479.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.filtered.bed
+    jobid: 1772
+    reason: Missing output files: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc33_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc65_AD/wps/AD/ubc65_AD.wps.AD.matrix.gz
+    jobid: 1425
+    reason: Missing output files: results/ubc65_AD/wps/AD/ubc65_AD.wps.AD.matrix.gz
+    wildcards: sample=ubc65_AD, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc25.seq010471.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc25_AD/motif/NE/ubc25_AD.motif.NE.filtered.tsv
+    jobid: 2228
+    reason: Missing output files: results/ubc25_AD/motif/NE/ubc25_AD.motif.NE.filtered.tsv
+    wildcards: sample=ubc25_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc33.seq010479.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc33_AD/wps/AD/ubc33_AD.wps.AD.matrix.gz
+    jobid: 705
+    reason: Missing output files: results/ubc33_AD/wps/AD/ubc33_AD.wps.AD.matrix.gz
+    wildcards: sample=ubc33_AD, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc36.seq010482.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc36_AD/wps/NE/ubc36_AD.wps.NE.matrix.gz
+    jobid: 780
+    reason: Missing output files: results/ubc36_AD/wps/NE/ubc36_AD.wps.NE.matrix.gz
+    wildcards: sample=ubc36_AD, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc34.seq010480.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc34_AD/wps/NE/ubc34_AD.wps.NE.matrix.gz
+    jobid: 732
+    reason: Missing output files: results/ubc34_AD/wps/NE/ubc34_AD.wps.NE.matrix.gz
+    wildcards: sample=ubc34_AD, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc29.seq010475.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc29_AD/cleavage_profile/AD/ubc29_AD.cleavage_profile.AD.matrix.gz
+    jobid: 627
+    reason: Missing output files: results/ubc29_AD/cleavage_profile/AD/ubc29_AD.cleavage_profile.AD.matrix.gz
+    wildcards: sample=ubc29_AD, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc31.seq010477.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc31_NE/motif/NE/ubc31_NE.motif.NE.filtered.tsv
+    jobid: 2272
+    reason: Missing output files: results/ubc31_NE/motif/NE/ubc31_NE.motif.NE.filtered.tsv
+    wildcards: sample=ubc31_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc59.seq010649.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.filtered.bed
+    jobid: 1968
+    reason: Missing output files: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc59_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule merge_features:
+    output: /home/student/getFeatures_snakemake/merged/lpWGS_finaletoolkit_features.tsv
+    jobid: 2561
+    reason: Missing output files: /home/student/getFeatures_snakemake/merged/lpWGS_finaletoolkit_features.tsv
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc20.seq010441.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc20_NE/wps/AD/ubc20_NE.wps.AD.matrix.gz
+    jobid: 453
+    reason: Missing output files: results/ubc20_NE/wps/AD/ubc20_NE.wps.AD.matrix.gz
+    wildcards: sample=ubc20_NE, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc65_AD/wps/NE/ubc65_AD.wps.NE.matrix.gz
+    jobid: 1428
+    reason: Missing output files: results/ubc65_AD/wps/NE/ubc65_AD.wps.NE.matrix.gz
+    wildcards: sample=ubc65_AD, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc32.seq010478.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.filtered.bed
+    jobid: 1766
+    reason: Missing output files: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc32_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc25.seq010471.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.filtered.bed
+    jobid: 1718
+    reason: Missing output files: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc25_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc8_AD/wps/AD/ubc8_AD.wps.AD.matrix.gz
+    jobid: 177
+    reason: Missing output files: results/ubc8_AD/wps/AD/ubc8_AD.wps.AD.matrix.gz
+    wildcards: sample=ubc8_AD, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc12.seq010433.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc12_NE/cleavage_profile/NE/ubc12_NE.cleavage_profile.NE.matrix.gz
+    jobid: 282
+    reason: Missing output files: results/ubc12_NE/cleavage_profile/NE/ubc12_NE.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc12_NE, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc55.seq010645.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc55_AD/cleavage_profile/NE/ubc55_AD.cleavage_profile.NE.matrix.gz
+    jobid: 1182
+    reason: Missing output files: results/ubc55_AD/cleavage_profile/NE/ubc55_AD.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc55_AD, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc3.seq010424.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.filtered.bed
+    jobid: 1556
+    reason: Missing output files: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc3_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc55.seq010645.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.filtered.bed
+    jobid: 1930
+    reason: Missing output files: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc55_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc32.seq010478.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.filtered.bed
+    jobid: 1762
+    reason: Missing output files: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc32_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc45.seq010491.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc45_NE/motif/NE/ubc45_NE.motif.NE.filtered.tsv
+    jobid: 2384
+    reason: Missing output files: results/ubc45_NE/motif/NE/ubc45_NE.motif.NE.filtered.tsv
+    wildcards: sample=ubc45_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc12.seq010433.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc12_AD/motif/AD/ubc12_AD.motif.AD.filtered.tsv
+    jobid: 2138
+    reason: Missing output files: results/ubc12_AD/motif/AD/ubc12_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc12_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc4.seq010425.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.filtered.bed
+    jobid: 1564
+    reason: Missing output files: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc4_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc44.seq010490.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.filtered.bed
+    jobid: 1860
+    reason: Missing output files: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc44_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc5.seq010426.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc5_AD/motif/AD/ubc5_AD.motif.AD.filtered.tsv
+    jobid: 2082
+    reason: Missing output files: results/ubc5_AD/motif/AD/ubc5_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc5_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc68.seq010658.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc68_AD/motif/AD/ubc68_AD.motif.AD.filtered.tsv
+    jobid: 2546
+    reason: Missing output files: results/ubc68_AD/motif/AD/ubc68_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc68_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc48_NE/cleavage_profile/AD/ubc48_NE.cleavage_profile.AD.matrix.gz
+    jobid: 1071
+    reason: Missing output files: results/ubc48_NE/cleavage_profile/AD/ubc48_NE.cleavage_profile.AD.matrix.gz
+    wildcards: sample=ubc48_NE, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc70.seq010660.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc70_NE/wps/NE/ubc70_NE.wps.NE.matrix.gz
+    jobid: 1536
+    reason: Missing output files: results/ubc70_NE/wps/NE/ubc70_NE.wps.NE.matrix.gz
+    wildcards: sample=ubc70_NE, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc8_AD/cleavage_profile/AD/ubc8_AD.cleavage_profile.AD.matrix.gz
+    jobid: 171
+    reason: Missing output files: results/ubc8_AD/cleavage_profile/AD/ubc8_AD.cleavage_profile.AD.matrix.gz
+    wildcards: sample=ubc8_AD, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc12.seq010433.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc12_AD/wps/NE/ubc12_AD.wps.NE.matrix.gz
+    jobid: 276
+    reason: Missing output files: results/ubc12_AD/wps/NE/ubc12_AD.wps.NE.matrix.gz
+    wildcards: sample=ubc12_AD, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc54.seq010644.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc54_NE/wps/NE/ubc54_NE.wps.NE.matrix.gz
+    jobid: 1176
+    reason: Missing output files: results/ubc54_NE/wps/NE/ubc54_NE.wps.NE.matrix.gz
+    wildcards: sample=ubc54_NE, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc35.seq010481.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc35_AD/wps/NE/ubc35_AD.wps.NE.matrix.gz
+    jobid: 756
+    reason: Missing output files: results/ubc35_AD/wps/NE/ubc35_AD.wps.NE.matrix.gz
+    wildcards: sample=ubc35_AD, signal=wps, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc60.seq010650.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc60_AD/cleavage_profile/NE/ubc60_AD.cleavage_profile.NE.matrix.gz
+    jobid: 1302
+    reason: Missing output files: results/ubc60_AD/cleavage_profile/NE/ubc60_AD.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc60_AD, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc51.seq010641.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc51_AD/motif/AD/ubc51_AD.motif.AD.filtered.tsv
+    jobid: 2410
+    reason: Missing output files: results/ubc51_AD/motif/AD/ubc51_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc51_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc62.seq010652.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc62_NE/fraglen/NE/ubc62_NE.fraglen.NE.filtered.bed
+    jobid: 1992
+    reason: Missing output files: results/ubc62_NE/fraglen/NE/ubc62_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc62_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc10.seq010431.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc10_AD/motif/AD/ubc10_AD.motif.AD.filtered.tsv
+    jobid: 2122
+    reason: Missing output files: results/ubc10_AD/motif/AD/ubc10_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc10_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc10.seq010431.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.filtered.bed
+    jobid: 1612
+    reason: Missing output files: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc10_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc13.seq010434.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.filtered.bed
+    jobid: 1636
+    reason: Missing output files: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc13_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc46.seq010492.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc46_AD/motif/NE/ubc46_AD.motif.NE.filtered.tsv
+    jobid: 2388
+    reason: Missing output files: results/ubc46_AD/motif/NE/ubc46_AD.motif.NE.filtered.tsv
+    wildcards: sample=ubc46_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc62.seq010652.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc62_AD/motif/NE/ubc62_AD.motif.NE.filtered.tsv
+    jobid: 2500
+    reason: Missing output files: results/ubc62_AD/motif/NE/ubc62_AD.motif.NE.filtered.tsv
+    wildcards: sample=ubc62_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc65_AD/motif/AD/ubc65_AD.motif.AD.filtered.tsv
+    jobid: 2522
+    reason: Missing output files: results/ubc65_AD/motif/AD/ubc65_AD.motif.AD.filtered.tsv
+    wildcards: sample=ubc65_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc61_AD/cleavage_profile/NE/ubc61_AD.cleavage_profile.NE.matrix.gz
+    jobid: 1326
+    reason: Missing output files: results/ubc61_AD/cleavage_profile/NE/ubc61_AD.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc61_AD, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc43.seq010489.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc43_NE/fraglen/NE/ubc43_NE.fraglen.NE.filtered.bed
+    jobid: 1856
+    reason: Missing output files: results/ubc43_NE/fraglen/NE/ubc43_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc43_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc9.seq010430.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc9_NE/fraglen/NE/ubc9_NE.fraglen.NE.filtered.bed
+    jobid: 1608
+    reason: Missing output files: results/ubc9_NE/fraglen/NE/ubc9_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc9_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc39.seq010485.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc39_NE/motif/NE/ubc39_NE.motif.NE.filtered.tsv
+    jobid: 2336
+    reason: Missing output files: results/ubc39_NE/motif/NE/ubc39_NE.motif.NE.filtered.tsv
+    wildcards: sample=ubc39_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc32.seq010478.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc32_NE/fraglen/NE/ubc32_NE.fraglen.NE.filtered.bed
+    jobid: 1768
+    reason: Missing output files: results/ubc32_NE/fraglen/NE/ubc32_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc32_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc48_NE/cleavage_profile/NE/ubc48_NE.cleavage_profile.NE.matrix.gz
+    jobid: 1074
+    reason: Missing output files: results/ubc48_NE/cleavage_profile/NE/ubc48_NE.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc48_NE, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc8_AD/cleavage_profile/NE/ubc8_AD.cleavage_profile.NE.matrix.gz
+    jobid: 174
+    reason: Missing output files: results/ubc8_AD/cleavage_profile/NE/ubc8_AD.cleavage_profile.NE.matrix.gz
+    wildcards: sample=ubc8_AD, signal=cleavage_profile, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc55.seq010645.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc55_AD/cleavage_profile/AD/ubc55_AD.cleavage_profile.AD.matrix.gz
+    jobid: 1179
+    reason: Missing output files: results/ubc55_AD/cleavage_profile/AD/ubc55_AD.cleavage_profile.AD.matrix.gz
+    wildcards: sample=ubc55_AD, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc12.seq010433.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc12_NE/cleavage_profile/AD/ubc12_NE.cleavage_profile.AD.matrix.gz
+    jobid: 279
+    reason: Missing output files: results/ubc12_NE/cleavage_profile/AD/ubc12_NE.cleavage_profile.AD.matrix.gz
+    wildcards: sample=ubc12_NE, signal=cleavage_profile, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc61_AD/wps/AD/ubc61_AD.wps.AD.matrix.gz
+    jobid: 1329
+    reason: Missing output files: results/ubc61_AD/wps/AD/ubc61_AD.wps.AD.matrix.gz
+    wildcards: sample=ubc61_AD, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc33.seq010479.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc33_NE/fraglen/AD/ubc33_NE.fraglen.AD.filtered.bed
+    jobid: 1774
+    reason: Missing output files: results/ubc33_NE/fraglen/AD/ubc33_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc33_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc32.seq010478.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc32_NE/motif/AD/ubc32_NE.motif.AD.filtered.tsv
+    jobid: 2278
+    reason: Missing output files: results/ubc32_NE/motif/AD/ubc32_NE.motif.AD.filtered.tsv
+    wildcards: sample=ubc32_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule motifs_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc9.seq010430.dedup.interval_end_motifs.tsv, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc9_NE/motif/AD/ubc9_NE.motif.AD.filtered.tsv
+    jobid: 2118
+    reason: Missing output files: results/ubc9_NE/motif/AD/ubc9_NE.motif.AD.filtered.tsv
+    wildcards: sample=ubc9_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule computeMatrix:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc48_NE/wps/AD/ubc48_NE.wps.AD.matrix.gz
+    jobid: 1077
+    reason: Missing output files: results/ubc48_NE/wps/AD/ubc48_NE.wps.AD.matrix.gz
+    wildcards: sample=ubc48_NE, signal=wps, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:27 2025]
+rule fraglen_filter_by_sites:
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc3.seq010424.dedup.frag_length_intervals.bed, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc3_NE/fraglen/AD/ubc3_NE.fraglen.AD.filtered.bed
+    jobid: 1558
+    reason: Missing output files: results/ubc3_NE/fraglen/AD/ubc3_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc3_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+[Fri Sep 26 11:07:27 2025]
+Finished job 1938.
+1 of 2562 steps (0.0%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1940.
+2 of 2562 steps (0.1%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1772.
+3 of 2562 steps (0.1%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1968.
+4 of 2562 steps (0.2%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1556.
+5 of 2562 steps (0.2%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1930.
+6 of 2562 steps (0.2%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1718.
+7 of 2562 steps (0.3%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1762.
+8 of 2562 steps (0.3%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1766.
+9 of 2562 steps (0.4%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1564.
+10 of 2562 steps (0.4%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1860.
+11 of 2562 steps (0.4%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1612.
+12 of 2562 steps (0.5%) done
+[Fri Sep 26 11:07:27 2025]
+Finished job 1636.
+13 of 2562 steps (1%) done
+Select jobs to execute...
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.filtered.bed
+    output: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.features.tsv
+    jobid: 1939
+    reason: Missing output files: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc56_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.filtered.bed
+    output: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.features.tsv
+    jobid: 1761
+    reason: Missing output files: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.features.tsv; Input files updated by another job: results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc32_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+[Fri Sep 26 11:07:28 2025]
+Error in rule merge_features:
+    jobid: 2561
+    output: /home/student/getFeatures_snakemake/merged/lpWGS_finaletoolkit_features.tsv
+    shell:
+        
+        labels_flag=""
+        if [ -n "" ]; then
+            labels_flag="--labels "
+        fi
+        python scripts/merge_features.py \
+          --results /home/student/getFeatures_snakemake/lpWGS_results \
+          --signals cleavage_profile fraglen motif wps \
+          $labels_flag \
+          --out /home/student/getFeatures_snakemake/merged/lpWGS_finaletoolkit_features.tsv
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.filtered.bed
+    output: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.features.tsv
+    jobid: 1967
+    reason: Missing output files: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.features.tsv; Input files updated by another job: results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.filtered.bed
+    wildcards: sample=ubc59_NE, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.filtered.bed
+    output: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.features.tsv
+    jobid: 1765
+    reason: Missing output files: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.features.tsv; Input files updated by another job: results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc32_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.filtered.bed
+    output: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.features.tsv
+    jobid: 1937
+    reason: Missing output files: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.features.tsv; Input files updated by another job: results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc56_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.filtered.bed
+    output: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.features.tsv
+    jobid: 1717
+    reason: Missing output files: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.features.tsv; Input files updated by another job: results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.filtered.bed
+    wildcards: sample=ubc25_NE, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.filtered.bed
+    output: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.features.tsv
+    jobid: 1563
+    reason: Missing output files: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc4_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.filtered.bed
+    output: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.features.tsv
+    jobid: 1635
+    reason: Missing output files: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc13_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.filtered.bed
+    output: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.features.tsv
+    jobid: 1859
+    reason: Missing output files: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc44_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.filtered.bed
+    output: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.features.tsv
+    jobid: 1771
+    reason: Missing output files: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc33_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.filtered.bed
+    output: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.features.tsv
+    jobid: 1929
+    reason: Missing output files: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.features.tsv; Input files updated by another job: results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.filtered.bed
+    wildcards: sample=ubc55_AD, siteset=AD
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.filtered.bed
+    output: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.features.tsv
+    jobid: 1611
+    reason: Missing output files: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc10_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 26 11:07:28 2025]
+rule fraglen_features:
+    input: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.filtered.bed
+    output: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.features.tsv
+    jobid: 1555
+    reason: Missing output files: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.features.tsv; Input files updated by another job: results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.filtered.bed
+    wildcards: sample=ubc3_AD, siteset=NE
+    resources: tmpdir=/tmp
+
+[Fri Sep 26 11:07:28 2025]
+Finished job 1992.
+14 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1856.
+15 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1768.
+16 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1608.
+17 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1774.
+18 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1558.
+19 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 1717.
+20 of 2562 steps (1%) done
+Removing temporary output results/ubc25_NE/fraglen/AD/ubc25_NE.fraglen.AD.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1765.
+21 of 2562 steps (1%) done
+Removing temporary output results/ubc32_NE/fraglen/AD/ubc32_NE.fraglen.AD.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1929.
+22 of 2562 steps (1%) done
+Removing temporary output results/ubc55_AD/fraglen/AD/ubc55_AD.fraglen.AD.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1555.
+23 of 2562 steps (1%) done
+Removing temporary output results/ubc3_AD/fraglen/NE/ubc3_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1563.
+24 of 2562 steps (1%) done
+Removing temporary output results/ubc4_AD/fraglen/NE/ubc4_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1939.
+25 of 2562 steps (1%) done
+Removing temporary output results/ubc56_AD/fraglen/NE/ubc56_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1771.
+26 of 2562 steps (1%) done
+Removing temporary output results/ubc33_AD/fraglen/NE/ubc33_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1761.
+27 of 2562 steps (1%) done
+Removing temporary output results/ubc32_AD/fraglen/AD/ubc32_AD.fraglen.AD.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1635.
+28 of 2562 steps (1%) done
+Removing temporary output results/ubc13_AD/fraglen/NE/ubc13_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1937.
+29 of 2562 steps (1%) done
+Removing temporary output results/ubc56_AD/fraglen/AD/ubc56_AD.fraglen.AD.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1967.
+30 of 2562 steps (1%) done
+Removing temporary output results/ubc59_NE/fraglen/NE/ubc59_NE.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1611.
+31 of 2562 steps (1%) done
+Removing temporary output results/ubc10_AD/fraglen/NE/ubc10_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 1859.
+32 of 2562 steps (1%) done
+Removing temporary output results/ubc44_AD/fraglen/NE/ubc44_AD.fraglen.NE.filtered.bed.
+[Fri Sep 26 11:07:28 2025]
+Finished job 2362.
+33 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 2146.
+34 of 2562 steps (1%) done
+[Fri Sep 26 11:07:28 2025]
+Finished job 2228.
+35 of 2562 steps (1%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2138.
+36 of 2562 steps (1%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2546.
+37 of 2562 steps (1%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2082.
+38 of 2562 steps (1%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2122.
+39 of 2562 steps (2%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2410.
+40 of 2562 steps (2%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2388.
+41 of 2562 steps (2%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2500.
+42 of 2562 steps (2%) done
+[Fri Sep 26 11:07:29 2025]
+Finished job 2522.
+43 of 2562 steps (2%) done
+[Fri Sep 26 11:07:30 2025]
+Finished job 2272.
+44 of 2562 steps (2%) done
+[Fri Sep 26 11:07:30 2025]
+Finished job 2384.
+45 of 2562 steps (2%) done
+[Fri Sep 26 11:07:30 2025]
+Finished job 2336.
+46 of 2562 steps (2%) done
+[Fri Sep 26 11:07:30 2025]
+Finished job 2278.
+47 of 2562 steps (2%) done
+[Fri Sep 26 11:07:30 2025]
+Finished job 2118.
+48 of 2562 steps (2%) done
+[Fri Sep 26 11:08:27 2025]
+Finished job 1071.
+49 of 2562 steps (2%) done
+[Fri Sep 26 11:08:27 2025]
+Finished job 279.
+50 of 2562 steps (2%) done
+[Fri Sep 26 11:08:29 2025]
+Finished job 171.
+51 of 2562 steps (2%) done
+[Fri Sep 26 11:08:30 2025]
+Finished job 1179.
+52 of 2562 steps (2%) done
+Terminating processes on user request, this might take some time.
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1425
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc65_AD/wps/AD/ubc65_AD.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc65_AD/wps/AD/ubc65_AD.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 627
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc29.seq010475.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc29_AD/cleavage_profile/AD/ubc29_AD.cleavage_profile.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc29.seq010475.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc29_AD/cleavage_profile/AD/ubc29_AD.cleavage_profile.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1329
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc61_AD/wps/AD/ubc61_AD.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc61_AD/wps/AD/ubc61_AD.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 177
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc8_AD/wps/AD/ubc8_AD.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc8_AD/wps/AD/ubc8_AD.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1077
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc48_NE/wps/AD/ubc48_NE.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc48_NE/wps/AD/ubc48_NE.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 453
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc20.seq010441.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc20_NE/wps/AD/ubc20_NE.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc20.seq010441.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc20_NE/wps/AD/ubc20_NE.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 705
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc33.seq010479.dedup.wps.bw, /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed
+    output: results/ubc33_AD/wps/AD/ubc33_AD.wps.AD.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc33.seq010479.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/AD-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc33_AD/wps/AD/ubc33_AD.wps.AD.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1074
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc48_NE/cleavage_profile/NE/ubc48_NE.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc48.seq010638.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc48_NE/cleavage_profile/NE/ubc48_NE.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1536
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc70.seq010660.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc70_NE/wps/NE/ubc70_NE.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc70.seq010660.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc70_NE/wps/NE/ubc70_NE.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 282
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc12.seq010433.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc12_NE/cleavage_profile/NE/ubc12_NE.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc12.seq010433.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc12_NE/cleavage_profile/NE/ubc12_NE.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 174
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc8_AD/cleavage_profile/NE/ubc8_AD.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc8.seq010429.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc8_AD/cleavage_profile/NE/ubc8_AD.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 1428
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc65_AD/wps/NE/ubc65_AD.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc65.seq010655.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc65_AD/wps/NE/ubc65_AD.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 1182
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc55.seq010645.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc55_AD/cleavage_profile/NE/ubc55_AD.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc55.seq010645.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc55_AD/cleavage_profile/NE/ubc55_AD.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 26 11:08:32 2025]
+Error in rule computeMatrix:
+    jobid: 780
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc36.seq010482.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc36_AD/wps/NE/ubc36_AD.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc36.seq010482.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc36_AD/wps/NE/ubc36_AD.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 1302
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc60.seq010650.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc60_AD/cleavage_profile/NE/ubc60_AD.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc60.seq010650.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc60_AD/cleavage_profile/NE/ubc60_AD.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 1176
+    input: /mnt/e/lpWGS_finaletoolkit_results_NE/ubc54.seq010644.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc54_NE/wps/NE/ubc54_NE.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_NE/ubc54.seq010644.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc54_NE/wps/NE/ubc54_NE.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 732
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc34.seq010480.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc34_AD/wps/NE/ubc34_AD.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc34.seq010480.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc34_AD/wps/NE/ubc34_AD.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 1326
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.cleavage_profile.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc61_AD/cleavage_profile/NE/ubc61_AD.cleavage_profile.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc61.seq010651.dedup.cleavage_profile.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc61_AD/cleavage_profile/NE/ubc61_AD.cleavage_profile.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 756
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc35.seq010481.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc35_AD/wps/NE/ubc35_AD.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc35.seq010481.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc35_AD/wps/NE/ubc35_AD.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule computeMatrix:
+    jobid: 276
+    input: /mnt/e/lpWGS_finaletoolkit_results_AD/ubc12.seq010433.dedup.wps.bw, /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed
+    output: results/ubc12_AD/wps/NE/ubc12_AD.wps.NE.matrix.gz
+    shell:
+        
+        computeMatrix reference-point \
+          -S /mnt/e/lpWGS_finaletoolkit_results_AD/ubc12.seq010433.dedup.wps.bw \
+          -R /home/student/2_finaletoolkit/NE-ATAC-TF.sorted.bed \
+          -a 1500 -b 1500 -bs 15 \
+          --referencePoint center \
+          --missingDataAsZero --skipZeros \
+          -o results/ubc12_AD/wps/NE/ubc12_AD.wps.NE.matrix.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-09-26T110725.023064.snakemake.log

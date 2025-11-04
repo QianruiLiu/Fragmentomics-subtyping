@@ -1,0 +1,71 @@
+Total in A (finaletoolkit): 21
+Total in B (griffin)     : 85
+Matched                  : 21
+
+Only in A (no match in B):
+
+Only in B (not in A base):
+  ubc1
+  ubc10
+  ubc11
+  ubc12
+  ubc13
+  ubc14
+  ubc15
+  ubc17
+  ubc18
+  ubc19
+  ubc2
+  ubc20
+  ubc21
+  ubc22
+  ubc23
+  ubc25
+  ubc26
+  ubc27
+  ubc28
+  ubc29
+  ubc3
+  ubc31
+  ubc32
+  ubc33
+  ubc34
+  ubc35
+  ubc36
+  ubc37
+  ubc38
+  ubc39
+  ubc4
+  ubc40
+  ubc41
+  ubc42
+  ubc43
+  ubc44
+  ubc45
+  ubc46
+  ubc47
+  ubc48
+  ubc5
+  ubc51
+  ubc52
+  ubc53
+  ubc54
+  ubc55
+  ubc56
+  ubc57
+  ubc58
+  ubc59
+  ubc6
+  ubc60
+  ubc61
+  ubc62
+  ubc63
+  ubc64
+  ubc65
+  ubc66
+  ubc67
+  ubc68
+  ubc7
+  ubc70
+  ubc8
+  ubc9
