@@ -228,8 +228,8 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
 
 Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snakemake pipeline provided by Ha Lab can be found in https://github.com/GavinHaLab/ichorCNA/tree/v0.4.0/scripts/snakemake
 
-To run this pipeline:
-
+* **To run this pipeline:**
+  
   a.clone the mouseSubtraction repository on your computer with
     
   ```bash
