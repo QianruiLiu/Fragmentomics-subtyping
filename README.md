@@ -140,7 +140,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
 
     a.clone the mouseSubtraction repository on your computer with
     ```bash
-    git clone https://github.com/GavinHaLab/PDX_mouseSubtraction
+    git clone https://github.com/GavinHaLab/PDX_mouseSubtraction.git
 
     cd PDX_mouseSubtraction
     ```
@@ -230,20 +230,23 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
 
 To run this pipeline:
 
-    a.clone the mouseSubtraction repository on your computer with
+  a.clone the mouseSubtraction repository on your computer with
     
-    ```bash
-    git clone https://github.com/GavinHaLab/PDX_mouseSubtraction
-    cd PDX_mouseSubtraction
-    ```
-    b.Create a samples.yaml with your list of bam files and place it in config/samples.yaml
+  ```bash
+    https://github.com/GavinHaLab/ichorCNA.git
 
-    c.Add the path of reference, tags, path of VCF files and path of tools in config/config.yaml
+    cd ichoCNA/scripts/snakemake/
+  ```
+  b.Create a samples.yaml with your list of bam files and place it in config/samples.yaml
 
-    d.Run snakemake with
-    ```bash
-    snakemake -s subtract_mouse_and_realign.snakefile --cores 48 #Change the cores you use according to your computer
-    ```
+  c.Add the path of readcounter, path of wig files of hg38, modify genome build and genome style in config/config.yaml.
+
+  Notice: The chromosome naming format should be consistent with the bam files. e.g. chr1, chr2 for UCSC format used in this workflow.
+
+  d.Run snakemake with
+  ```bash
+    snakemake -s ichorCNA.snakefile --cores 48 #Change the cores you use according to your computer
+  ```
 
 
 ## 4) Feature substraction
