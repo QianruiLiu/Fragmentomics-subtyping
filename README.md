@@ -334,27 +334,27 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
 ### FinaleToolkit features (WPS, Cleavage profile, Fragment-length, End-motif composition)
 
 * **Environment**
+  
+  finaletoolkit （0.11.0）
 
-finaletoolkit （0.11.0）
+  snakemake （8.26.0）
 
-snakemake （8.26.0）
+  bedtools （2.31.1）
 
-bedtools （2.31.1）
+  htslib （1.21）
 
-htslib （1.21）
+  samtools （1.21）
 
-samtools （1.21）
+  The whole environment can be accessed in env/griffin.yaml in this repository. The environment can be directly built by
 
-The whole environment can be accessed in env/griffin.yaml in this repository. The environment can be directly built by
+    ```bash
+    conda env create -f env/finaletoolkit.yaml
 
-  ```bash
-  conda env create -f env/finaletoolkit.yaml
+    conda activate finaletoolkit_workflow
 
-  conda activate finaletoolkit_workflow
+    pip install finaletoolkit #intall finaltoolkit separately with pip
 
-  pip install finaletoolkit #intall finaltoolkit separately with pip
-
-  ```
+    ```
 * **To run Finaletoolkit:**
   
   a.clone the finaletoolkit workflow repository on your computer with
