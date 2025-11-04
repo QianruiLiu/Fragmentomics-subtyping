@@ -378,6 +378,41 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
   ```bash
     snakemake --configfile params.yaml --cores 32 --jobs 4 #set different cores and jobs according to your computer
   ```
+### Feature extraction and feature matrix generating
+
+* **Environment**
+
+  deeptools（3.5.4）
+
+  bedtools（2.31.1）
+
+  pysam（0.15.3）
+
+  pybigwig（0.3.18）
+
+  py2bit（0.3.0）
+
+  numpy（1.21.6）
+
+  pandas（1.3.5）
+
+  matplotlib（3.5.3）
+
+  scipy（1.7.3）
+
+  python（3.7.12）
+
+  The whole environment can be accessed in env/griffin.yaml in this repository. The environment can be directly built by
+
+    ```bash
+    conda env create -f env/getFeatures.yaml
+
+    conda activate deeptools
+
+    ```
+  * **To run getFeatures pipeline:**
+    
+
 
 
 
