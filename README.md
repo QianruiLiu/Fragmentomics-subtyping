@@ -135,6 +135,7 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
   ```
   Run mouse_substraction snakemake pipeline in https://github.com/GavinHaLab/PDX_mouseSubtraction offered by Ha Lab.
   The pipeline contains mouse_substraction, realignment, Picard MarkDuplicates and base-quality, recalibration (GATK).
+  
   To run this pipeline:
 
     a.clone the mouseSubtraction repository on your computer with
@@ -226,6 +227,24 @@ The whole environment can be accessed in env/lucap_preprocessing.yaml in this re
   ```
 
 Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snakemake pipeline provided by Ha Lab can be found in https://github.com/GavinHaLab/ichorCNA/tree/v0.4.0/scripts/snakemake
+
+To run this pipeline:
+
+    a.clone the mouseSubtraction repository on your computer with
+    
+    ```bash
+    git clone https://github.com/GavinHaLab/PDX_mouseSubtraction
+    cd PDX_mouseSubtraction
+    ```
+    b.Create a samples.yaml with your list of bam files and place it in config/samples.yaml
+
+    c.Add the path of reference, tags, path of VCF files and path of tools in config/config.yaml
+
+    d.Run snakemake with
+    ```bash
+    snakemake -s subtract_mouse_and_realign.snakefile --cores 48 #Change the cores you use according to your computer
+    ```
+
 
 ## 4) Feature substraction
 ### Griffin
