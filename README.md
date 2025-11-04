@@ -233,7 +233,7 @@ To run this pipeline:
   a.clone the mouseSubtraction repository on your computer with
     
   ```bash
-    https://github.com/GavinHaLab/ichorCNA.git
+    git clone https://github.com/GavinHaLab/ichorCNA.git
 
     cd ichoCNA/scripts/snakemake/
   ```
@@ -251,16 +251,34 @@ To run this pipeline:
 
 ## 4) Feature substraction
 ### Griffin
+* **Environment**
+  argparse (1.1)
 
-Environment creation:
+  pysam (0.15.4)
+  
+  pyBigWig (0.3.17)
+  
+  pandas (1.3.2)
 
-```bash
-mamba env create -f envs/finaletoolkit.yml
-mamba env create -f envs/griffin.yml
-mamba env create -f envs/rstats.yml
-```
+  numpy (1.21.2)
+  
+  scipy (1.7.1)
+  
+  pyyaml (5.3.1)
 
----
+  matplotlib (3.4.1)
+
+  snakemake (5.5.4)
+  
+  python (3.7.4)
+
+  The whole environment can be accessed in env/griffin.yaml in this repository. The environment can be directly built by
+
+  ```bash
+  conda env create -f env/griffin.yaml
+
+  conda activate griffin_demo
+  ```
 
 ## 5) Pipeline A — FinaleToolkit (External Snakemake)
 
