@@ -23,7 +23,7 @@ Mamba can be installed with
 conda install -n base -c conda-forge mamba -y
 ```
 
-*Note: The complete pipelines for (3) Tumor Fraction analysis and (4) Feature subtraction must be run end-to-end on each of the three datasets—LuCaP, the 64-sample lpWGS cohort, and the clinical cohort to derive tumor-fraction estimates and feature matrices for each dataset.
+**Note: The complete pipelines for (3) Tumor Fraction analysis and (4) Feature subtraction must be run end-to-end on each of the three datasets: LuCaP, the 64-sample lpWGS cohort, and the clinical cohort to derive tumor-fraction estimates and feature matrices for each dataset.**
 
 ## 1) Data Availability & Download
 
