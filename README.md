@@ -547,7 +547,7 @@ Tumor Fraction Estimation is done using ichorCNA on three data cohorts. The snak
 
   The scripts should be run as:
   ```bash
-  script Survival_analysis.R --dev_clin lpWGS_clinical_ubc.txt --dev_pred lpWGS_predicted_combined_LLR_softTF_predictions.tsv --clinic_pred clinic_predicted_combined_LLR_softTF_predictions.tsv --clinic_tf clinic_TF.txt --times 12,24,36 --out_prefix results/survival
+  Rscript Survival_analysis.R --dev_clin lpWGS_clinical_ubc.txt --dev_pred lpWGS_predicted_combined_LLR_softTF_predictions.tsv --clinic_pred clinic_predicted_combined_LLR_softTF_predictions.tsv --clinic_tf clinic_TF.txt --times 12,24,36 --out_prefix results/survival
   ```
 
 * **Outputs**
