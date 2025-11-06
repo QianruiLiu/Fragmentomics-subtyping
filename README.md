@@ -1,5 +1,9 @@
-# Fragmentomics-subtyping
+# Fragmentomics-subtyping Project
 The github repository from research project of BINP39
+
+Author: Qianrui Liu
+
+Github Link: https://github.com/QianruiLiu/Fragmentomics-subtyping.git
 
 **Workflow overview**
 
